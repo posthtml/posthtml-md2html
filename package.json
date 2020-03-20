@@ -1,7 +1,7 @@
 {
   "name": "posthtml-md2html",
   "description": "PostHTML plugin render markdown inside html elements.",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "author": "PostHTML",
   "ava": {
     "verbose": "true"
@@ -13,13 +13,12 @@
     "posthtml-match-helper": "^1.0.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.0.0",
-    "@commitlint/config-angular": "^8.0.0",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-angular": "^8.3.4",
     "ava": "^3.5.0",
-    "conventional-changelog": "^3.1.8",
-    "conventional-changelog-lint": "^2.1.1",
+    "conventional-changelog-cli": "^2.0.31",
     "husky": "^4.2.3",
-    "mversion": "^1.10.1",
+    "mversion": "^1.13.0",
     "snazzy": "^8.0.0",
     "standard": "^14.3.3"
   },
@@ -30,13 +29,14 @@
   "keywords": [
     "html",
     "posthtml",
-    "posthtml-plugin"
+    "posthtml-plugin",
+    "markdown"
   ],
   "license": "MIT",
   "main": "lib",
   "repository": "posthtml/posthtml-md2html",
   "scripts": {
-    "version": "conventional-changelog -i changelog.md -s -r 0 && git add changelog.md",
+    "version": "conventional-changelog -i changelog.md -s -r 0 && git add changelog.md && git commit -am \"build: update changelog\"",
     "lint": "standard --fix | snazzy",
     "release-major": "mversion major",
     "release-minor": "mversion minor",
