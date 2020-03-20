@@ -1,4 +1,4 @@
-# PostHTML Plugin Boilerplate <img align="right" width="220" height="200" title="PostHTML logo" src="http://posthtml.github.io/posthtml/logo.svg">
+# posthtml-md2html <img align="right" width="220" height="200" title="PostHTML logo" src="http://posthtml.github.io/posthtml/logo.svg">
 
 [![NPM][npm]][npm-url]
 [![Deps][deps]][deps-url]
@@ -7,41 +7,74 @@
 [![Standard Code Style][style]][style-url]
 [![Chat][chat]][chat-badge]
 
-Clone this repo and explain what your plugin do and why thousands of people need it ;)
+[posthtml-md2html] is a markdown plugin for [PostHTML] that lets you use markdown within HTML elements in an easy and intuitive way. 
+
+Main features:
+
+- Works on any tag with a `md` or `markdown` property
+- Knows when to write inline or block-level content
+- Will replace element if tag is `<md>` or `<markdown>`
+- Will treat `pre` tag with `md` or `markdown` property as `<md>` tag
 
 Before:
 ``` html
-<html>
-  <body>
-    <p class="wow">OMG</p>
-  </body>
-</html>
+<markdown># Heading with *italics*</markdown>
+<markdown>**Bold** paragraph</markdown>
+<div markdown>
+
+  | Head | row |
+  |------|-----|
+  | Data | row |
+
+</div>
+<main markdown>
+> # Title
+>
+> This is blockquote paragraph
+</main>
 ```
 
 After:
 ``` html
-<svg xmlns="http://www.w3.org/2000/svg">
-  <text class="wow" id="wow_id" fill="#4A83B4" fill-rule="evenodd" font-family="Verdana">
-    OMG
-  </text>
-</svg>
+<h1 id="heading-with-italics">Heading with <em>italics</em></h1>
+
+<p><strong>Bold</strong> paragraph</p>
+
+<div><table>
+<thead>
+<tr>
+<th>Head</th>
+<th>row</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Data</td>
+<td>row</td>
+</tr>
+</tbody></table>
+</div>
+<main><blockquote>
+<h1 id="title">Title</h1>
+<p>This is blockquote paragraph</p>
+</blockquote>
+</main>
 ```
+
 
 ## Install
 
-Describe how big guys can install your plugin.
+```bash
+npm i -S posthtml posthtml-md2html
+```
 
-> npm i posthtml posthtml-plugin
+> **Note:** This project is compatible with node v10+
 
 ## Usage
-
-Describe how people can use this plugin. Include info about build systems if it's
-necessary.
 
 ``` js
 const fs = require('fs');
 const posthtml = require('posthtml');
-const posthtmlPlugin = require('posthtml-plugin');
+const posthtmlPlugin = require('posthtml-md2html');
 
 posthtml()
     .use(posthtmlPlugin({ /* options */ }))
@@ -51,57 +84,26 @@ posthtml()
 
 ## Options
 
-Describe all features of your plugin with examples of usage.
-
-### Feature
-Before:
-``` html
-<html>
-  <body>
-    <p>OMG</p>
-  </body>
-</html>
-```
-Add option:
-``` js
-const fs = require('fs');
-const posthtml = require('posthtml');
-const posthtmlPlugin = require('posthtml-plugin');
-
-posthtml()
-    .use(posthtmlPlugin({ feature: 'wow' }))
-    .process(html/*, options */)
-    .then(result => fs.writeFileSync('./after.html', result.html));
-```
-After:
-``` html
-<html>
-  <body>
-    <p class="wow">OMG</p>
-  </body>
-</html>
-```
+All options are passed to [marked](https://github.com/markedjs/marked) directly
 
 ### Contributing
 
 See [PostHTML Guidelines](https://github.com/posthtml/posthtml/tree/master/docs) and [contribution guide](CONTRIBUTING.md).
 
-### License [MIT](LICENSE)
+[npm]: https://img.shields.io/npm/v/posthtml-md2html.svg
+[npm-url]: https://npmjs.com/package/posthtml-md2html
 
-[npm]: https://img.shields.io/npm/v/posthtml.svg
-[npm-url]: https://npmjs.com/package/posthtml
-
-[deps]: https://david-dm.org/posthtml/posthtml.svg
-[deps-url]: https://david-dm.org/posthtml/posthtml
+[deps]: https://david-dm.org/posthtml/posthtml-md2html.svg
+[deps-url]: https://david-dm.org/posthtml/posthtml-md2html
 
 [style]: https://img.shields.io/badge/code%20style-standard-yellow.svg
 [style-url]: http://standardjs.com/
 
-[build]: https://travis-ci.org/posthtml/posthtml.svg?branch=master
-[build-badge]: https://travis-ci.org/posthtml/posthtml?branch=master
+[build]: https://travis-ci.org/posthtml/posthtml-md2html.svg?branch=master
+[build-badge]: https://travis-ci.org/posthtml/posthtml-md2html?branch=master
 
-[cover]: https://coveralls.io/repos/posthtml/posthtml/badge.svg?branch=master
-[cover-badge]: https://coveralls.io/r/posthtml/posthtml?branch=master
+[cover]: https://coveralls.io/repos/posthtml/posthtml-md2html/badge.svg?branch=master
+[cover-badge]: https://coveralls.io/r/posthtml/posthtml-md2html?branch=master
 
 
 [chat]: https://badges.gitter.im/posthtml/posthtml.svg

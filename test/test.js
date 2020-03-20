@@ -7,15 +7,31 @@ const path = require('path')
 const posthtml = require('posthtml')
 const fixtures = path.join(__dirname, 'fixtures')
 
-test('basic', (t) => {
-  return compare(t, 'basic')
+test('header witch markdown', (t) => {
+  return compare(t, 'header-witch-markdown')
 })
 
-function compare (t, name) {
+test('markdown witch code html', (t) => {
+  return compare(t, 'markdown-witch-code-html')
+})
+
+test('markdown witch code js', (t) => {
+  return compare(t, 'markdown-witch-code-js')
+})
+
+test('markdown witch options', (t) => {
+  return compare(t, 'markdown-witch-options', {
+    whitespace: '  ',
+    breaks: true,
+    headerIds: false
+  })
+})
+
+function compare (t, name, options) {
   const html = readFileSync(path.join(fixtures, `${name}.html`), 'utf8')
   const expected = readFileSync(path.join(fixtures, `${name}.expected.html`), 'utf8')
 
-  return posthtml([plugin()])
+  return posthtml([plugin(options)])
     .process(html)
-    .then((res) => t.truthy(res.html === expected))
+    .then((res) => t.deepEqual(res.html, expected))
 }
