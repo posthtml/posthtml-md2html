@@ -1,8 +1,3 @@
-## 0.0.0 (2020-03-20)
-
-
-
-
 ## <small>0.0.1 (2020-03-20)</small>
 
 * Initial commit ([f3f2167](https://github.com/posthtml/posthtml-md2html/commit/f3f2167))
