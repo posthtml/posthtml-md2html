@@ -1,7 +1,7 @@
 'use strict'
 
 const test = require('ava')
-const plugin = require('..')
+const plugin = require('../lib')
 const { readFileSync } = require('fs')
 const path = require('path')
 const posthtml = require('posthtml')
@@ -13,6 +13,10 @@ test('header witch markdown', (t) => {
 
 test('markdown witch code html', (t) => {
   return compare(t, 'markdown-witch-code-html')
+})
+
+test('markdown witch code in html', (t) => {
+  return compare(t, 'markdown-witch-code-in-html')
 })
 
 test('markdown witch code js', (t) => {

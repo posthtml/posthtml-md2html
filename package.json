@@ -1,21 +1,21 @@
 {
   "name": "posthtml-md2html",
   "description": "PostHTML plugin render markdown inside html elements.",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "PostHTML",
   "ava": {
     "verbose": "true"
   },
   "bugs": "https://github.com/posthtml/posthtml-md2html/issues",
   "dependencies": {
-    "marked": "^0.8.1",
+    "marked": "^0.8.2",
     "posthtml": "^0.12.0",
     "posthtml-match-helper": "^1.0.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-angular": "^8.3.4",
-    "ava": "^3.5.0",
+    "ava": "^3.5.1",
     "conventional-changelog-cli": "^2.0.31",
     "husky": "^4.2.3",
     "mversion": "^1.13.0",
