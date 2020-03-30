@@ -31,6 +31,10 @@ test('markdown witch options', (t) => {
   })
 })
 
+test('md with indent', (t) => {
+  return compare(t, 'md-with-indent')
+})
+
 function compare (t, name, options) {
   const html = readFileSync(path.join(fixtures, `${name}.html`), 'utf8')
   const expected = readFileSync(path.join(fixtures, `${name}.expected.html`), 'utf8')

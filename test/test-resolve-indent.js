@@ -3,7 +3,7 @@
 const test = require('ava')
 const { readFileSync } = require('fs')
 const path = require('path')
-const resolveCodeBlock = require('../lib/resolve-code-block')
+const resolveIndent = require('../lib/resolve-indent')
 const fixtures = path.join(__dirname, 'fixtures')
 
 test('markdown code', (t) => {
@@ -18,5 +18,5 @@ function compare (t, name) {
   const html = readFileSync(path.join(fixtures, `${name}.html`), 'utf8')
   const expected = readFileSync(path.join(fixtures, `${name}.expected.html`), 'utf8')
 
-  t.deepEqual(resolveCodeBlock(html), expected)
+  t.deepEqual(resolveIndent(html), expected)
 }
