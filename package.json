@@ -8,7 +8,7 @@
   },
   "bugs": "https://github.com/posthtml/posthtml-md2html/issues",
   "dependencies": {
-    "marked": "^0.8.2",
+    "marked": "^4.0.10",
     "posthtml": "^0.12.0",
     "posthtml-match-helper": "^1.0.1"
   },
